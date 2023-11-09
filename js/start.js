@@ -162,3 +162,42 @@ function again(){
   const notDiv = document.getElementById('easterEgg')
   notDiv.style.display = 'none';
 }
+function copyToClipboard(URL) {
+  const textarea = document.createElement('textarea');
+  textarea.value = URL;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
+}
+
+document.getElementById('shareButton').addEventListener('click', function() {
+  copyToClipboard(window.location.href);
+  alert("URL이 클립보드에 복사되었습니다. 원하는 곳에 붙여넣어 공유해주세요!");
+});
+
+function updateParticipantCount() {
+  $.ajax({
+    url: '/.netlify/functions/update-participant-count', // Netlify Functions의 엔드포인트
+    type: 'POST', // 데이터를 서버로 보내기 위해 POST 메소드 사용
+    success: function(response) {
+      // 성공적으로 응답을 받으면, 참여자 수를 웹 페이지에 업데이트
+      // 응답은 JSON 형태로 가정합니다.
+      var data = JSON.parse(response);
+      $('#count').text(data.participantCount); // 참여자 수를 업데이트
+    },
+    error: function(xhr, status, error) {
+      // 오류가 발생하면 콘솔에 오류 메시지 출력
+      console.error("Update failed: " + error);
+    }
+  });
+}
+
+// 페이지 로드 시 참여자 수를 업데이트
+$(document).ready(function() {
+  updateParticipantCount();
+});
+
+
+
+

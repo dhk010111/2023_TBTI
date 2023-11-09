@@ -69,6 +69,9 @@
         <br><br>
         아래 시작하기 버튼을 눌러주세요!
       </p>      
+      <p id="participantCount">누적 참여자 수: <span id="count">0</span>명</p>
+      
+
 
       <button type="button" class="jalan btn mt-3 startButton" onclick="js:begin()">시작하기</button>
 
@@ -78,7 +81,7 @@
       data-ad-width   = "300" 
       data-ad-height  = "250"></ins>  -->
       <p class="Gmarket testBoxBody" style="margin-top: 30px;">
-        Create by
+        Created by
         <br/>
         <!--img/favicon.png 이미지 첨부-->
         <img src="./img/favicon.png" alt="mainImage" class="img-fluid" style="width: 110px; height: 110px;">
@@ -124,9 +127,6 @@
       <div id="resultImg" class="my-3 col-lg-6 col-md-8 col-sm-10 col-12 mx-auto" onclick="wow(this)">
 
       </div>
-      <div id="easterEgg" class="my-3 col-lg-6 col-md-8 col-sm-10 col-12 mx-auto" onclick="again(this)">
-
-      </div>
       <div class="resultDesc">
         <div class="resultDescTitle1">
 
@@ -145,7 +145,9 @@
         </div>
         <div class="resultDesc3">
           
-        </div>        
+        </div>
+        <button id="shareButton" class="jalan btn mt-3 startButton" onclick="js:copyToClipboard(URL)">TBTI 공유하기</button>
+       
       </div>
       <div class="recommand">
         <div class="ifU">
@@ -161,7 +163,7 @@
 
         </div>
 
-        <button type="button" class="jalan btn mt-3 startButton" onclick="js:goFair()">사계는 어떤 서비스일까?</button>
+        <button type="button" class="jalan btn mt-3 startButton" onclick="js:goFair()">사계는 어떤 서비스일까?(홈페이지 오픈 예정)</button>
       </div>
 
     </section>
